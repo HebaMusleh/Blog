@@ -268,3 +268,6 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-success"
     }
 }
+
+# Add new user model
+AUTH_USER_MODEL = 'api.User'
