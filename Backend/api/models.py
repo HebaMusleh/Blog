@@ -42,7 +42,7 @@ class Profile(models.Model):
     def save(self,*args,**kwargs):
         if self.full_name == "" or self.full_name == None:
             self.full_name = self.user.full_name
-        if self.username == "" or self.username == None:
+        if self.user.username == "" or self.user.username == None:
             self.username =  self.user.full_name
         super(Profile,self).save(*args,**kwargs)
 
