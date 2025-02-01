@@ -17,8 +17,8 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework_simplejwt.tokens import RefreshToken
 
-# from drf_yasg import openapi
-# from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from datetime import datetime
 
 # Others
@@ -37,14 +37,16 @@ class RegisterView(generics.CreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = api_serializers.RegisterSerializer
 
+
 class ProfileView(generics.RetrieveUpdateAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = (AllowAny,)
     serializer_class = api_serializers.ProfileSerializer
 
-    def get_queryset(self):
+    def get_object(self):
         user_id = self.kwargs['user_id']
+
         user = api_models.User.objects.get(id=user_id)
-        profile =api_models.Profile.objects.get(user=user)
-        return profile 
+        profile = api_models.Profile.objects.get(user=user)
+        return profile
 
 

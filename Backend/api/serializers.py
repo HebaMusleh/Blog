@@ -6,7 +6,8 @@ from api import models as api_models
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls,user):
-        token = super().get_token(user)(cls,user)
+        # Call the parent class's get_token method
+        token = super().get_token(user)
         token['full_name']=user.full_name
         token['email']=user.email
         token['username']=user.username
@@ -28,14 +29,19 @@ class RegisterSerializer (serializers.ModelSerializer):
         return attr
     
     def create(self, validated_data):
-        user = api_models.User.object.create(
-            full_name = validated_data['full_name'],
-            email=validated_data['email'])
-
-        email_username,mobile=user.email.split("@")
+        # Define a method to create a new user based on validated data
+        user = api_models.User.objects.create(
+            full_name=validated_data['full_name'],
+            email=validated_data['email'],
+        )
+        email_username, mobile = user.email.split('@')
         user.username = email_username
+
+        # Set the user's password based on the validated data
         user.set_password(validated_data['password'])
         user.save()
+
+        # Return the created user
         return user
     
 class UserSerializer(serializers.ModelSerializer):
