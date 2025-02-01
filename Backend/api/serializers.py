@@ -29,12 +29,12 @@ class RegisterSerializer (serializers.ModelSerializer):
     
     def create(self, validated_data):
         user = api_models.User.object.create(
-            full_name = validated_data['full_name']
-            email=validated_data['email']
-        )
+            full_name = validated_data['full_name'],
+            email=validated_data['email'])
+
         email_username,mobile=user.email.split("@")
         user.username = email_username
-        user.set_password(validate_password['password'])
+        user.set_password(validated_data['password'])
         user.save()
         return user
     
@@ -51,7 +51,50 @@ class ProfileSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = api_models.Category
+        fields = ['id','title','image','slug','post_count']
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = api_models.Comment
         fields = "__all__"
+    def __init__ (self,*args,**kwargs):
+        super(CommentSerializer,self).__init__(*args,**kwargs)
+        request = self.context.get('request')
+        if request and request.method == 'POST':
+            self.Meta.depth=0
+        else :
+            self.Meta.depth=3
+
+class BookMarkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = api_models.Bookmark
+        fields = "__all__"
+    def __init__ (self,*args,**kwargs):
+        super(BookMarkSerializer,self).__init__(*args,**kwargs)
+        request = self.context.get('request')
+        if request and request.method == 'POST':
+            self.Meta.depth=0
+        else :
+            self.Meta.depth=3
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = api_models.Comment
+        fields = "__all__"
+    def __init__ (self,*args,**kwargs):
+        super(NotificationSerializer,self).__init__(*args,**kwargs)
+        request = self.context.get('request')
+        if request and request.method == 'POST':
+            self.Meta.depth=0
+        else :
+            self.Meta.depth=3
+
+# custom serializer : 
+class AuthorSerializer(serializers.Serializer):
+    views = serializers.IntegerField(default=0)
+    posts = serializers.IntegerField(default=0)
+    likes = serializers.IntegerField(default=0)
+    bookmarks = serializers.IntegerField(default=0)
 
 
 
