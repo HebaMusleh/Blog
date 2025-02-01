@@ -101,10 +101,10 @@ class Post(models.Model):
     class Meta : 
         verbose_name_plural = "Post"
 
-    def save(self,*args,**kwargs):
-        if self.slug == "" or self.slug ==None :
-            self.slug = slugify(self.title)+"-"+shortuuid.uuid()[:2]
-        super(Category,self).save(*args,**kwargs)
+    def save(self, *args, **kwargs):
+        if self.slug == "" or self.slug == None:
+            self.slug = slugify(self.title) + "-" + shortuuid.uuid()[:2]
+        super(Post, self).save(*args, **kwargs)
 
 class Comment (models.Model):
     post = models.ForeignKey(Post,on_delete=models.CASCADE)

@@ -49,4 +49,17 @@ class ProfileView(generics.RetrieveUpdateAPIView):
         profile = api_models.Profile.objects.get(user=user)
         return profile
 
+# category view list 
+class CategoryListAPIView(generics.ListAPIView):
+    serializer_class=api_serializers.CategorySerializer
+    permission_classes=[AllowAny]
+    def get_queryset(self):
+        return api_models.Category.objects.all()
 
+class PostCategoryListAPIView(generics.ListAPIView):
+    serializer_class = api_serializers.ProfileSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        category_slug = self.kwargs['category_slug']
+        category = api_models.Category.objects.get(slug=category_slug)
+        return api_models.Post.objects.filter(category=category,status="ACTIVE")
