@@ -95,6 +95,11 @@ class NotificationSerializer(serializers.ModelSerializer):
         else :
             self.Meta.depth=3
 
+class PostSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = api_models.Post
+        fields = "__all__"
+
 # custom serializer : 
 class AuthorSerializer(serializers.Serializer):
     views = serializers.IntegerField(default=0)
