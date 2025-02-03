@@ -101,4 +101,22 @@ class LikePostAPIView(APIView):
         return Response({"message":"Post liked"},status=status.HTTP_200_OK)
     
 class PostCommentAPIView(APIView):
+    def post(self,request):
+        post_id = request.data['post_id']
+        name = request.data['name']
+        email = request.data['email']
+        comment = request.data['comment']
+        post = api_models.Post.objects.get(id=post_id)
+        api_models.Comment.objects.create(
+            post=post,
+            name=name,
+            email=email,
+            comment=comment
+        )
+        api_models.Notification.objects.create(
+            user=post.user,
+            post=post,
+            type="comment"
+        )
+        return Response({"message":"Comment added"},status=status.HTTP_201_CREATED)
     
