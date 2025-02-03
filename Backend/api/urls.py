@@ -15,6 +15,8 @@ urlpatterns=[
 
     #post API Endpoints 
     path('post/list',api_views.PostListView.as_view()),
-    path('post/details/<post_slug>',api_views.PostDetailView.as_view())
+    path('post/details/<post_slug>',api_views.PostDetailView.as_view()),
+    path('post/like-post',api_views.LikePostAPIView.as_view()),
+    
 
 ]
