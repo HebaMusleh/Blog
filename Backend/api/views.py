@@ -137,3 +137,29 @@ class BookMarkPostAPIView(APIView):
                 post=post
             )
             return Response({"message":"Post added to bookmark"},status=status.HTTP_201_CREATED)
+        
+# Dashboard Views 
+class DashboardStats(generics.ListAPIView):
+    serializer_class = api_serializers.AuthorSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+        user = api_models.User.objects.get(id=user_id)
+
+        views = api_models.Post.objects.filter(user=user).aggregate(view=Sum("views"))['view']
+        posts = api_models.Post.objects.filter(user=user).count()
+        likes = api_models.Post.objects.filter(user=user).aggregate(total_likes=Sum("likes"))['total_likes']
+        bookmarks = api_models.Bookmark.objects.all().count()
+
+        return [{
+            "views": views,
+            "posts": posts,
+            "likes": likes,
+            "bookmarks": bookmarks,
+        }]
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
