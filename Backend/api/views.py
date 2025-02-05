@@ -206,5 +206,16 @@ class DashboardMarkNotificationSeen(APIView):
             "message":"Notification marked as seen"
         }, status=status.HTTP_200_OK)
     
+class DashboardReplyCommentAPIView(APIView):
+    def post(self,request):
+        comment_id = request.data['comment_id']
+        reply = request.data['reply']
 
+        comment = api_models.Comment.objects.get(id = comment_id)
+        comment.reply = reply   
+        comment.save()
+
+        return Response({
+            "message":"Comment replied successfully"
+        }, status=status.HTTP_201_CREATED)
 
