@@ -164,7 +164,7 @@ class DashboardStats(generics.ListAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
     
-class DashboardLists(generics.ListAPIView):
+class DashboardPostLists(generics.ListAPIView):
     serializer_class = api_serializers.PostSerializer
     permission_classes = [AllowAny]
 
@@ -173,5 +173,16 @@ class DashboardLists(generics.ListAPIView):
         user = api_models.User.objects.get(id=user_id)
 
         return api_models.Post.objects.filter(user=user).order_by("-id")
+
+class DashboardCommentLists(generics.ListAPIView):
+    serializer_class = api_serializers.CommentSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+        user = api_models.User.objects.get(id=user_id)
+
+        return api_models.Comment.objects.filter(post__user=user)
     
+
 
