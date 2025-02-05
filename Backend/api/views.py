@@ -184,5 +184,27 @@ class DashboardCommentLists(generics.ListAPIView):
 
         return api_models.Comment.objects.filter(post__user=user)
     
+class DashboardNotificationLists(generics.ListAPIView):
+    serializer_class = api_serializers.NotificationSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+        user = api_models.User.objects.get(id=user_id)
+
+        return api_models.Notification.objects.all(seen = False , user=user)
+    
+class DashboardMarkNotificationSeen(APIView):
+    def post(self,request):
+        notification_id = request.data['notification_id']
+        notification = api_models.Notification.objects.get(id = notification_id)
+
+        notification.seen=True
+        notification.save()
+        
+        return Response({
+            "message":"Notification marked as seen"
+        }, status=status.HTTP_200_OK)
+    
 
 
