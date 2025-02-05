@@ -21,8 +21,12 @@ urlpatterns=[
     path('post/bookmark-post',api_views.BookMarkPostAPIView.as_view()),
 
     # Dashboard url 
-    path('author/dashboard/stats/<user_id>',api_views.DashboardStats.as_view()),
-
+    path('author/dashboard/stats/<user_id>/', api_views.DashboardStats.as_view()),
+    path('author/dashboard/post-list/<user_id>/', api_views.DashboardPostLists.as_view()),
+    path('author/dashboard/comment-list/', api_views.DashboardCommentLists.as_view()),
+    path('author/dashboard/noti-list/<user_id>/', api_views.DashboardNotificationLists.as_view()),
+    path('author/dashboard/noti-mark-seen/', api_views.DashboardMarkNotificationSeen.as_view()),
+    path('author/dashboard/reply-comment/', api_views.DashboardReplyCommentAPIView.as_view()),
 
 
 ]
