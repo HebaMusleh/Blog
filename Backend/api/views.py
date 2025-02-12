@@ -83,6 +83,16 @@ class PostDetailView(generics.RetrieveAPIView):
         return post
 
 class LikePostAPIView(APIView):
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'user_id': openapi.Schema(type=openapi.TYPE_INTEGER),
+                'post_id': openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        ),
+    )
+
     def post(self,request):
         user_id = request.data['user_id']
         post_id = request.data['post_id']
@@ -101,6 +111,18 @@ class LikePostAPIView(APIView):
         return Response({"message":"Post liked"},status=status.HTTP_200_OK)
     
 class PostCommentAPIView(APIView):
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'post_id': openapi.Schema(type=openapi.TYPE_INTEGER),
+                'name': openapi.Schema(type=openapi.TYPE_STRING),
+                'email': openapi.Schema(type=openapi.TYPE_STRING),
+                'comment': openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        ),
+    )
+
     def post(self,request):
         post_id = request.data['post_id']
         name = request.data['name']
@@ -121,6 +143,16 @@ class PostCommentAPIView(APIView):
         return Response({"message":"Comment added"},status=status.HTTP_201_CREATED)
     
 class BookMarkPostAPIView(APIView):
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'user_id': openapi.Schema(type=openapi.TYPE_INTEGER),
+                'post_id': openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        ),
+    )
+
     def post(self,request):
         user_id = request.data['user_id']
         post_id = request.data['post_id']
@@ -195,6 +227,15 @@ class DashboardNotificationLists(generics.ListAPIView):
         return api_models.Notification.objects.all(seen = False , user=user)
     
 class DashboardMarkNotificationSeen(APIView):
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'notification_id': openapi.Schema(type=openapi.TYPE_INTEGER),
+            },
+        ),
+    )
+
     def post(self,request):
         notification_id = request.data['notification_id']
         notification = api_models.Notification.objects.get(id = notification_id)
@@ -207,6 +248,15 @@ class DashboardMarkNotificationSeen(APIView):
         }, status=status.HTTP_200_OK)
     
 class DashboardReplyCommentAPIView(APIView):
+    @swagger_auto_schema(
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'comment_id': openapi.Schema(type=openapi.TYPE_INTEGER),
+                'reply': openapi.Schema(type=openapi.TYPE_STRING),
+            },
+        ),
+    )
     def post(self,request):
         comment_id = request.data['comment_id']
         reply = request.data['reply']
