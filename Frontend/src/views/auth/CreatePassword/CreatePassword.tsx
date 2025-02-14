@@ -1,5 +1,5 @@
-import { Button, FormInput, Title, Wrapper } from "./components";
-import { InputCreatePassword } from "../../constant";
+import { Button, FormInput, Title, Wrapper } from "../components";
+import { InputCreatePassword } from "../../../constant";
 
 function CreatePassword() {
   return (

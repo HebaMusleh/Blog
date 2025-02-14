@@ -1,14 +1,13 @@
-import MainWrapper from "../layouts/MainWrapper";
 import { Route, Routes } from "react-router-dom";
-import Index from "../views/core/Index";
-import Detail from "../views/core/Detail";
-import Category from "../views/core/Category";
-import Search from './../views/partials/Header/components/Search';
-import Register from "../views/auth/Register";
-import Login from "../views/auth/Login";
-import ForgotPassword from "../views/auth/ForgotPassword";
-import CreatePassword from "../views/auth/CreatePassword";
-import Logout from "../views/auth/Logout";
+import MainWrapper from "../layouts/MainWrapper";
+import { Core, Detail, Category, Search } from "../views/core";
+import {
+  Register,
+  Login,
+  Logout,
+  ForgotPassword,
+  CreatePassword,
+} from "../views/auth";
 import Dashboard from "../views/dashboard/Dashboard";
 import Posts from "../views/dashboard/Posts";
 import AddPost from "../views/dashboard/AddPost";
@@ -22,7 +21,7 @@ function Router() {
   return (
     <MainWrapper>
       <Routes>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<Core />} />
         <Route path="/:slug/" element={<Detail />} />
         <Route path="/category/:slug/" element={<Category />} />
         <Route path="/search/" element={<Search />} />

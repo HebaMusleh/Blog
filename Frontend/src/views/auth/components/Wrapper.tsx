@@ -1,10 +1,7 @@
 import React from "react";
-import { Footer, Header } from "../../partials";
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-      <Header />
       <section
         className="container d-flex flex-column vh-100"
         style={{ marginTop: "150px" }}
@@ -17,8 +14,6 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </section>
-      <Footer />
-    </>
   );
 };
 
