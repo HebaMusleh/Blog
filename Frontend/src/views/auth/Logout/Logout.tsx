@@ -1,4 +1,4 @@
-import { Title, Wrapper, HyperLink } from "./components";
+import { Title, Wrapper, HyperLink } from "../components";
 
 const Logout = () => {
   return (

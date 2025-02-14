@@ -1,4 +1,4 @@
-import { Button, FormInput, Title, Wrapper } from "./components";
+import { Button, FormInput, Title, Wrapper } from "../components";
 
 function ForgotPassword() {
   return (

@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
-import { InputLogin } from "../../constant";
-import FormInput from "./components/FormInput";
-import Button from "./components/Button";
-import Title from "./components/Title";
-import Wrapper from "./components/Wrapper";
+import { FormInput, Button, Title, Wrapper } from "../components";
+import { InputLogin } from "../../../constant";
 
 function Login() {
   return (
@@ -38,8 +35,8 @@ function Login() {
             <Link to="/forgot-password/">Forgot your password?</Link>
           </div>
         </div>
-        
-            <Button title="Sign in" classIcon="fa-sign-in-alt" />
+
+        <Button title="Sign in" classIcon="fa-sign-in-alt" />
       </form>
     </Wrapper>
   );

@@ -1,8 +1,5 @@
-import { InputRegister } from "../../constant";
-import FormInput from "./components/FormInput";
-import Button from "./components/Button";
-import Title from "./components/Title";
-import Wrapper from "./components/Wrapper";
+import {FormInput,Button,Title,Wrapper} from "./../components";
+import { InputRegister } from "../../../constant";
 
 function Register() {
   return (
