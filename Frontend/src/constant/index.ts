@@ -150,3 +150,13 @@ export const InputCreatePassword = [
     error: "Please enter valid password.",
   },
 ];
+
+export const tags = [
+  "agency",
+  "business",
+  "company",
+  "corporate",
+  "theme",
+  "bootstrap",
+  "marketing",
+];
