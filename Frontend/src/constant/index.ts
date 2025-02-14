@@ -57,7 +57,7 @@ export const DropDownItemsDashboard = [
   },
 ];
 
-export const DropDownItemPages =[
+export const DropDownItemPages = [
   {
     link: "about",
     title: "About",
@@ -67,5 +67,86 @@ export const DropDownItemPages =[
     link: "contact",
     title: "Contact",
     classIcon: "bi-telephone-fill",
-  }
-]
+  },
+];
+
+export const InputLogin = [
+  {
+    title: "Username",
+    type: "text",
+    id: "username",
+    name: "username",
+    placeholder: "John Doe",
+    htmlFor: "username",
+    error: "Please enter valid username.",
+  },
+  {
+    title: "Password",
+    type: "password",
+    id: "password",
+    name: "password",
+    placeholder: "**************",
+    htmlFor: "password",
+    error: "Please enter valid password.",
+  },
+];
+
+export const InputRegister = [
+  {
+    title: "Username",
+    type: "text",
+    id: "username",
+    name: "username",
+    placeholder: "John Doe",
+    htmlFor: "username",
+    error: "Please enter valid username.",
+  },
+  {
+    title: "Email",
+    type: "email",
+    id: "email",
+    name: "email",
+    placeholder: "john.doe@gmail.com",
+    htmlFor: "email",
+    error: "Please enter valid email.",
+  },
+  {
+    title: "Password",
+    type: "password",
+    id: "password",
+    name: "password",
+    placeholder: "**************",
+    htmlFor: "password",
+    error: "Please enter valid password.",
+  },
+  {
+    title: "Confirm Password",
+    type: "password",
+    id: "confirmPassword",
+    name: "confirmPassword",
+    placeholder: "**************",
+    htmlFor: "confirmPassword",
+    error: "Please enter valid password.",
+  },
+];
+
+export const InputCreatePassword = [
+  {
+    title: "Password",
+    type: "password",
+    id: "password",
+    name: "password",
+    placeholder: "**************",
+    htmlFor: "password",
+    error: "Please enter valid password.",
+  },
+  {
+    title: "Confirm Password",
+    type: "password",
+    id: "confirmPassword",
+    name: "confirmPassword",
+    placeholder: "**************",
+    htmlFor: "confirmPassword",
+    error: "Please enter valid password.",
+  },
+];
