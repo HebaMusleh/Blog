@@ -1,4 +1,4 @@
-export const socialLink = [
+const socialLink = [
   {
     classIcon: "fa-twitter-square",
     href: "https://twitter.com/coder_heba",
@@ -13,7 +13,7 @@ export const socialLink = [
   },
 ];
 
-export const Buttons = [
+const Buttons = [
   {
     link: "register",
     title: "Register",
@@ -24,7 +24,7 @@ export const Buttons = [
   },
 ];
 
-export const DropDownItemsDashboard = [
+const DropDownItemsDashboard = [
   {
     link: "dashboard",
     title: "Dashboard",
@@ -57,7 +57,7 @@ export const DropDownItemsDashboard = [
   },
 ];
 
-export const DropDownItemPages = [
+const DropDownItemPages = [
   {
     link: "about",
     title: "About",
@@ -70,7 +70,7 @@ export const DropDownItemPages = [
   },
 ];
 
-export const InputLogin = [
+const InputLogin = [
   {
     title: "Username",
     type: "text",
@@ -91,7 +91,7 @@ export const InputLogin = [
   },
 ];
 
-export const InputRegister = [
+const InputRegister = [
   {
     title: "Username",
     type: "text",
@@ -130,7 +130,7 @@ export const InputRegister = [
   },
 ];
 
-export const InputCreatePassword = [
+const InputCreatePassword = [
   {
     title: "Password",
     type: "password",
@@ -151,7 +151,7 @@ export const InputCreatePassword = [
   },
 ];
 
-export const tags = [
+const tags = [
   "agency",
   "business",
   "company",
@@ -160,3 +160,41 @@ export const tags = [
   "bootstrap",
   "marketing",
 ];
+
+const statistics = [
+  {
+    classIcon: "bi-people-fill",
+    TotalNum: "654",
+    title: "Total Views",
+    color:"success"
+  },
+  {
+    classIcon: "bi-file-earmark-text-fill",
+    TotalNum: "25",
+    title: "Posts",
+    color:"primary"
+  },
+  {
+    classIcon: "bi-suit-heart-fill",
+    TotalNum: "210",
+    title: "Likes",
+    color:"danger"
+  },
+  {
+    classIcon: "bi-tag",
+    TotalNum: "84K",
+    title: "Bookmarks",
+    color:"info"
+  },
+];
+export {
+  statistics,
+  tags,
+  InputCreatePassword,
+  InputRegister,
+  InputLogin,
+  DropDownItemPages,
+  DropDownItemsDashboard,
+  socialLink,
+  Buttons,
+};
