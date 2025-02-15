@@ -238,6 +238,18 @@ const teamMembers = [
     job: "Editor in Chief",
   },
 ];
+
+const info = [
+  {
+    title: "Address Informations",
+    details: "2492 Centennial NW, Acworth, GA, 30102",
+  },
+  {
+    title: "Contact Information",
+    details: "Get in touch with us to see how we can help you with your query",
+    address: "750 Sing Sing Rd, Horseheads, NY, 14845",
+  },
+];
 export {
   statistics,
   tags,
@@ -250,4 +262,5 @@ export {
   Buttons,
   services,
   teamMembers,
+  info,
 };

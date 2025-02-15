@@ -5,22 +5,9 @@ interface Props {
   post?: boolean;
   comment?: boolean;
   notification?: boolean;
-  time?: string;
-  notiTitle?: string;
-  notiBody?: string;
-  classIcon?: string;
 }
 
-const CardBody: React.FC<Props> = ({
-  images,
-  post,
-  comment,
-  notification,
-  time,
-  notiTitle,
-  notiBody,
-  classIcon,
-}) => {
+const CardBody: React.FC<Props> = ({ images, post, comment, notification }) => {
   return (
     <div>
       <div className="col-12">
@@ -75,21 +62,32 @@ const CardBody: React.FC<Props> = ({
           </div>
         )}
         {comment && (
-          <div className="ms-3">
-            <p className="mb-1">
-              {" "}
-              <a
-                className="h6 stretched-link text-decoration-none text-dark"
-                href="#"
-              >
-                {" "}
-                Thanks for the post, please post regulary.{" "}
-              </a>
-            </p>
-            <div className="d-flex justify-content-between">
-              <p className="small mb-0">
-                <i>by</i> Monica Sweet
+          <div className="d-flex position-relative">
+            <img
+              className="w-60 rounded"
+              src={`${images}`}
+              style={{
+                width: "100px",
+                height: "110px",
+                objectFit: "cover",
+              }}
+              alt="product"
+            />
+            <div className="ms-3">
+              <p className="mb-1">
+                <a
+                  className="h6 stretched-link text-decoration-none text-dark"
+                  href="#"
+                >
+                  {" "}
+                  Thanks for the post, please post regulary.{" "}
+                </a>
               </p>
+              <div className="d-flex justify-content-between">
+                <p className="small mb-0">
+                  <i>by</i> Monica Sweet
+                </p>
+              </div>
             </div>
           </div>
         )}

@@ -30,6 +30,7 @@ const Dashboard = () => {
                 <CardBody
                   key={i}
                   comment
+                  images="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/flat-with-touch-of-creativity-PX387LV-2.jpg"
                 />
               ))}
             </WrapperCard>
