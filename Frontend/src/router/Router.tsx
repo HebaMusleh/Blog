@@ -17,8 +17,7 @@ import {
   Profile,
   EditPost
 } from "../views/dashboard";
-import About from "../views/pages/About";
-import Contact from "../views/pages/Contact";
+import {About,Contact} from "../views/pages";
 
 function Router() {
   return (

@@ -166,25 +166,76 @@ const statistics = [
     classIcon: "bi-people-fill",
     TotalNum: "654",
     title: "Total Views",
-    color:"success"
+    color: "success",
   },
   {
     classIcon: "bi-file-earmark-text-fill",
     TotalNum: "25",
     title: "Posts",
-    color:"primary"
+    color: "primary",
   },
   {
     classIcon: "bi-suit-heart-fill",
     TotalNum: "210",
     title: "Likes",
-    color:"danger"
+    color: "danger",
   },
   {
     classIcon: "bi-tag",
     TotalNum: "84K",
     title: "Bookmarks",
-    color:"info"
+    color: "info",
+  },
+];
+
+const services = [
+  {
+    image:
+      "https://www.aspistrategist.org.au/wp-content/uploads/2023/11/GettyImages-467714941-1024x764.jpg",
+    title: "Global news services",
+    description:
+      "Perceived end knowledge certainly day sweetness why cordially.Ask a quick six seven offer see among.",
+  },
+  {
+    image:
+      "https://www.varletmachines.com/sites/default/files/styles/large/public/2022-04/Commercial.png?itok=jE81FZ_E",
+    title: "Commercial services",
+    description:
+      "Speedily say has suitable disposal add boy. On forth doubtmiles of child. Exercise joy man children rejoiced.",
+  },
+  {
+    image:
+      "https://www.columbiasouthern.edu/media/azmjow33/fire-ems-cj-public-service.jpg",
+    title: "Public services",
+    description:
+      "Yet uncommonly his ten who diminution astonished. Demesne new manners savings staying had.",
+  },
+];
+
+const teamMembers = [
+  {
+    avatar:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVSPtLWfht2p015onFngljcoIuA9xc8h3RLA&usqp=CAU",
+    name: "Frances Guerrero",
+    job: "Managing Editor",
+  },
+  {
+    avatar:
+      "https://www.byrdie.com/thmb/aZWxblVz7BMxeObHtJEKX_ddV3c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Stocksy_txpce733110Uae300_Medium_4082489-df45caed45cd449b806f9ce16a20804a.jpg",
+    name: "Larry Lawson",
+    job: "Director Graphics ",
+  },
+  {
+    avatar:
+      "https://static.vecteezy.com/system/resources/previews/036/442/773/non_2x/ai-generated-portrait-of-a-young-japanese-man-no-facial-expression-half-body-shot-facing-the-camera-isolated-white-background-ai-generative-free-photo.jpg",
+    name: "Louis Crawford",
+    job: "Editor, Coverage",
+  },
+  {
+    avatar:
+      "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZmFjZXxlbnwwfHwwfHx8MA%3D%3D",
+    name: "Louis Ferguson",
+    job: "Editor in Chief",
   },
 ];
 export {
@@ -197,4 +248,6 @@ export {
   DropDownItemsDashboard,
   socialLink,
   Buttons,
+  services,
+  teamMembers,
 };
