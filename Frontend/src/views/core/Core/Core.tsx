@@ -1,6 +1,11 @@
 import { CategoryCard, Pagination, Title } from "../components";
 import { Card } from "../../partials";
+
+import { useGetPosts } from "../../../hooks/posts/get-posts";
+
 function Index() {
+  const {data} = useGetPosts();
+  console.log(data);
   return (
     <>
       <Title title="Trending Articles 🔥" />

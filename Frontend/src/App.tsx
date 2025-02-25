@@ -1,9 +1,7 @@
-import Router from "./router/Router"
-
+import Router from "./router/Router";
 
 const App = () => {
-  return (
-    <Router/>
-  )
-}
-export default App 
+  // for not forget add here react query client provider
+  return <Router />;
+};
+export default App;
