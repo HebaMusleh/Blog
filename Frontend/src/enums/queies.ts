@@ -1,3 +1,4 @@
-export const QUERIES ={
-    POSTS :"posts",
-}
+export const QUERIES = {
+  POSTS: "posts",
+  CATEGORY: "category",
+};

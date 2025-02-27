@@ -3,10 +3,12 @@ import { Card } from "../../partials";
 
 import { useGetPosts } from "../../../hooks/posts/get-posts";
 import { PostList } from "../../../models/posts/posts.models";
+import { useCategory } from "../../../hooks/category/get-category";
 
 function Index() {
   const { data: Posts } = useGetPosts();
-  console.log(Posts);
+  const { data: Categories } = useCategory();
+  console.log(Categories);
   return (
     <>
       <Title title="Trending Articles 🔥" />
@@ -28,10 +30,11 @@ function Index() {
               <div className="mb-4">
                 <h2>Categories</h2>
               </div>
-              <div className="d-flex flex-wrap justify-content-between">
-                {[...Array(7)].map((_, i) => (
-                  <CategoryCard key={i} />
-                ))}
+              <div className="d-flex flex-wrap gap-3">
+                {Array.isArray(Categories) &&
+                  Categories.map((category) => (
+                    <CategoryCard key={category.id} {...category} />
+                  ))}
               </div>
             </div>
           </div>

@@ -13,3 +13,16 @@ export const fetchPosts = async () => {
     }
   }
 };
+
+export const fetchCategory = async () => {
+  try {
+    const res = await apiInstance.get("post/category/list");
+    return res.data;
+  } catch (error) {
+    if (error instanceof Error) {
+      Toast("error", error.message);
+    } else {
+      Toast("error", "An unknown error occurred");
+    }
+  }
+};

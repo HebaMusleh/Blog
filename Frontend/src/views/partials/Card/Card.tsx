@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { formatDate } from "../../../utils/dateFormatter";
+import Moment from "./../../../plugin/Moment";
 
 interface Props {
   image: any;
@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({ image, title, views, date }) => {
-  const dateFormatter = formatDate(date);
   return (
     <div className="col-sm-6 col-lg-3">
       <div className="card mb-4">
@@ -49,7 +48,7 @@ const Card: React.FC<Props> = ({ image, title, views, date }) => {
               </a>
             </li>
             <li className="mt-2">
-              <i className="fas fa-calendar"></i> {dateFormatter}
+              <i className="fas fa-calendar"></i> {Moment(date)}
             </li>
             <li className="mt-2">
               <i className="fas fa-eye"></i> {views} Views
