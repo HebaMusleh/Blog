@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { formatDate } from "../../../utils/dateFormatter";
 
-interface Props {}
+interface Props {
+  image: any;
+  title: string;
+  views: number;
+  date: string;
+}
 
-const Card = (props: Props) => {
+const Card: React.FC<Props> = ({ image, title, views, date }) => {
+  const dateFormatter = formatDate(date);
   return (
     <div className="col-sm-6 col-lg-3">
       <div className="card mb-4">
@@ -15,7 +22,7 @@ const Card = (props: Props) => {
               height: "160px",
               objectFit: "cover",
             }}
-            src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/kitchen-and-dining-room-P5JHHM6.jpg"
+            src={image}
             alt="Card image"
           />
         </div>
@@ -25,7 +32,7 @@ const Card = (props: Props) => {
               to={`/7-common-mistakes-everyone-makes-while-travelling/`}
               className="btn-link text-reset stretched-link fw-bold text-decoration-none"
             >
-              7 common mistakes everyone makes while traveling
+              {title}
             </Link>
           </h4>
           <button style={{ border: "none", background: "none" }}>
@@ -42,10 +49,10 @@ const Card = (props: Props) => {
               </a>
             </li>
             <li className="mt-2">
-              <i className="fas fa-calendar"></i> Mar 07, 2022
+              <i className="fas fa-calendar"></i> {dateFormatter}
             </li>
             <li className="mt-2">
-              <i className="fas fa-eye"></i> 10 Views
+              <i className="fas fa-eye"></i> {views} Views
             </li>
           </ul>
         </div>

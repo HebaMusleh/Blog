@@ -2,10 +2,11 @@ import { CategoryCard, Pagination, Title } from "../components";
 import { Card } from "../../partials";
 
 import { useGetPosts } from "../../../hooks/posts/get-posts";
+import { PostList } from "../../../models/posts/posts.models";
 
 function Index() {
-  const {data} = useGetPosts();
-  console.log(data);
+  const { data: Posts } = useGetPosts();
+  console.log(Posts);
   return (
     <>
       <Title title="Trending Articles 🔥" />
@@ -13,9 +14,8 @@ function Index() {
       <section className="pt-4 pb-0">
         <div className="container">
           <div className="row">
-            {[...Array(4)].map((_, i) => (
-              <Card key={i} />
-            ))}
+            {Array.isArray(Posts) &&
+              Posts.map((post: PostList) => <Card key={post.id} {...post} />)}
           </div>
           <Pagination />
         </div>
@@ -42,7 +42,8 @@ function Index() {
         <div className="container">
           <div className="row">
             {[...Array(8)].map((_, i) => (
-              <Card key={i} />
+              // <Card key={i} />
+              <h1>test</h1>
             ))}
           </div>
           <Pagination />
